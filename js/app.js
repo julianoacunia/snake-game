@@ -173,6 +173,19 @@
             repaint();
         }
 
+        function checkFruit(){
+            if(!fruitActive){
+                foodCount += 1;
+            }
+            if(foodCount >= 3){
+                fruit.x = random(canvas.width / 10 - 1) * 10;
+                fruit.y = random(canvas.height / 10 - 1) * 10;
+                fruitActive = true;
+                foodCount = 0;
+                ridFruit();
+            }
+        }
+
 
 
 })
