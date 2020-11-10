@@ -116,6 +116,10 @@
             scenes[currentScene].load();
         }
 
+        function random(max) {
+            return ~~(Math.random() * max);
+        }
+
 
 
 })
