@@ -47,4 +47,15 @@
             })
         }
 
+        window.requestAnimationFrame = (function () {
+            return window.requestAnimationFrame ||
+                window.mozRequestAnimationFrame ||
+                window.webkitRequestAnimationFrame ||
+                function (callback) {
+                    window.setTimeout(callback, 17);
+                };
+        }());
+
+        
+
 })
