@@ -111,6 +111,11 @@
             act: function () { }
         };
 
+        function loadScene(scene) {
+            currentScene = scene.id;
+            scenes[currentScene].load();
+        }
+
 
 
 })
