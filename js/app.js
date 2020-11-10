@@ -139,6 +139,13 @@
             }
         }
 
+        function run() {
+            setTimeout(run, 50);
+            if (scenes.length) {
+                scenes[currentScene].act();
+            }
+        }
+
 
 
 })
