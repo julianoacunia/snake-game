@@ -31,4 +31,20 @@
         aEat = new Audio(),
         aDie = new Audio();
 
+        function sendScore(){
+            fetch('https://jsonplaceholder.typicode.com/posts',{
+                method: 'POST',
+                body: {
+                    score: score
+                }
+            }).then(function(response){
+                return response.json()
+            .then(function(parseResponse){
+                console.log("Score sent successfully " + parseResponse);
+            })
+            }).catch(function(error){
+                console.log("Error trying to send the score " + error)
+            })
+        }
+
 })
