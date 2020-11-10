@@ -408,4 +408,4 @@
     };
     window.addEventListener('load', init, false);
 
-})
+}(window));
