@@ -132,6 +132,13 @@
             localStorage.highscores = highscores.join(',');
         }
 
+        function repaint() {
+            window.requestAnimationFrame(repaint);
+            if (scenes.length) {
+                scenes[currentScene].paint(ctx);
+            }
+        }
+
 
 
 })
