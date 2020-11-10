@@ -222,6 +222,60 @@
         }
     };
 
+    // Game Scene
+    gameScene = new Scene();
+    gameScene.load = function () {
+        score = 0;
+        dir = 1;
+        body.length = 0;
+        body.push(new Rectangle(40, 40, 10, 10));
+        body.push(new Rectangle(0, 0, 10, 10));
+        body.push(new Rectangle(0, 0, 10, 10));
+        food.x = random(canvas.width / 10 - 1) * 10;
+        food.y = random(canvas.height / 10 - 1) * 10;        
+        fruit.x = -10;
+        fruit.y = -10;
+        gameover = false;
+    };
+    gameScene.paint = function (ctx) {
+        var i = 0,
+            l = 0;
+        // Clean canvas
+        ctx.fillStyle = '#037';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // Draw player
+        ctx.strokeStyle = '#0f0';
+        for (i = 0, l = body.length; i < l; i += 1) {
+            body[i].drawImage(ctx, iBody);
+        }
+        // Draw walls
+        //ctx.fillStyle = '#999';
+        //for (i = 0, l = wall.length; i < l; i += 1) {
+        // wall[i].fill(ctx);
+        //}
+        // Draw food
+        ctx.strokeStyle = '#f00';
+        food.drawImage(ctx, iFood);
+        //if (fruitActive){
+            fruit.drawImage(ctx, iFruit);
+        //}
+        // Draw score
+        ctx.fillStyle = '#fff';
+        ctx.textAlign = 'left';
+        ctx.fillText('Score: ' + score, 0, 10);
+        // Debug last key pressed
+        //ctx.fillText('Last Press: '+lastPress,0,20);
+        // Draw pause
+        if (pause) {
+            ctx.textAlign = 'center';
+            if (gameover) {
+                ctx.fillText('GAME OVER', 150, 75);
+            } else {
+                ctx.fillText('PAUSE', 150, 75);
+            }
+        }
+    };
+
 
 
 })
