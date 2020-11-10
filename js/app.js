@@ -186,6 +186,22 @@
             }
         }
 
+        function ridFruit(){
+            return new Promise((resolve,reject) => {
+                setTimeout(() => {
+                    fruitActive = false;
+                    fruit.x = -10;
+                    fruit.y = -10;
+                    resolve();
+                    // if(!err){
+                    //     resolve();
+                    // } else{
+                    //     reject('Something went wrong :(');
+                    // }
+                },4000)
+            });
+        }
+
 
 
 })
