@@ -202,6 +202,26 @@
             });
         }
 
+        // Main Scene
+    mainScene = new Scene();
+    mainScene.paint = function (ctx) {
+        // Clean canvas
+        ctx.fillStyle = '#333';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        // Draw title
+        ctx.fillStyle = '#fff';
+        ctx.textAlign = 'center';
+        ctx.fillText('SNAKE', 150, 60);
+        ctx.fillText('Press Enter', 150, 90);
+    };
+    mainScene.act = function () {
+        // Load next scene
+        if (lastPress === KEY_ENTER) {
+            loadScene(highscoresScene);
+            lastPress = null;
+        }
+    };
+
 
 
 })
